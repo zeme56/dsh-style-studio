@@ -1,0 +1,53 @@
+{
+  "name": "dsh-style-studio",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "视觉风格工坊 —— 在左侧边栏打开一个面板，用五套皮肤一键切换整个 DeepSeek Harness 的配色、字体与质感（像素街机 / 午夜终端 / 霓虹赛博 / 纸感书房 / 极光玻璃）。",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "theme",
+    "skin",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeme56/dsh-style-studio.git"
+  },
+  "homepage": "https://github.com/zeme56/dsh-style-studio#readme",
+  "icon": "./icon.svg",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "docs",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    }
+  }
+}
